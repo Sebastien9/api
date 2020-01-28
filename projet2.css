@@ -1,0 +1,99 @@
+body {
+    background-image: url(image.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+img {
+    height: 200px;
+    width: 500px;
+}
+
+#titre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input {
+    width: 175px;
+    height: 30px;
+    background-color: #304042;
+    color: #ffffff;
+    border: 2px solid #2a75bb;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#infos {
+    width: 500px;
+    height: auto;
+    background-color: #304042;
+    border: 2px solid #2a75bb;
+    margin: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+#pokemons {
+    width: 500px;
+    height: auto;
+    background-color: #304042;
+    border: 2px solid #2a75bb;
+    margin: 35px;
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+#pokemons div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.pasvue {
+    visibility: hidden;
+}
+
+.vue {
+    visibility: inherit
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(43, 134, 134);
+    opacity: 0.4;
+    color: white;
+}
+
+li {
+    list-style: none;
+    font-size: 2em;
+}
+
+a {
+    color: white;
+}
+
+#input {
+    width: 50em;
+    margin: auto;
+}
+
+img {
+    width: 8em;
+    opacity: 0.4;
+}
+
+@media (max-width: 750px) {}
