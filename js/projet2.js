@@ -1,3 +1,4 @@
+//appel perso  api
 function charger() {
     fetch('https://swapi.co/api/people/')
         .then(
@@ -25,6 +26,7 @@ function charger() {
         )
 }
 
+//affiche detail perso
 function infoperso(url) {
     var visible = document.getElementById("infos");
     visible.className = "vue"
@@ -114,44 +116,87 @@ function infoperso(url) {
         )
 }
 
+//suivant
+
 
 var page = 1
 
-function suivant(next) {
+function suivant() {
     page++
-    fetch('https://swapi.co/api/people/?page=' + page)
-
-
-    .then(
-        function(response) {
-            return response.json()
-        }
-    )
-
-    .then(
-
-        function(data) {
-            for (let i = 0; i < data.results.length; i++) {
-                var divp = document.createElement("div");
-                divp.setAttribute("id", "aligne" + i)
-                divp.innerHTML = " ";
-                var parent = document.getElementById("pokemons");
-                parent.appendChild(divp);
-                var pokemonf = document.createElement("p");
-                pokemonf.innerHTML = data.results[i].name;
-                divp.appendChild(pokemonf);
-                var infof = document.createElement("p");
-                infof.innerHTML = "voir les details";
-                infof.addEventListener("click", function() { infoperso(data.results[i].url) })
-                divp.appendChild(infof);
+    fetch('https://swapi.co/api/people/page=' + page)
+        .then(
+            function(response) {
+                return response.json();
             }
-        }
-    )
+        )
+        .then(
+            function(data) {
 
+                var tab = data;
+                // var p = document.getElementById("")
+                // p.innerHTML = " "
+                var info = document.getElementById("infos")
+                info.innerHTML = " "
+                var pok = document.getElementById("pokemons")
+                pok.innerHTML = " "
+
+                for (let i = 0; i <= 9; i++) {
+                    var divp = document.createElement("div");
+                    divp.setAttribute("id", "aligne" + i)
+                    divp.innerHTML = " ";
+                    var parent = document.getElementById("pokemons");
+                    parent.appendChild(divp);
+                    var pokemonf = document.createElement("p");
+                    pokemonf.innerHTML = data.results[i].name;
+                    divp.appendChild(pokemonf);
+                    var infof = document.createElement("p");
+                    infof.innerHTML = "voir les details";
+                    infof.addEventListener("click", function() { infoperso(data.results[i].url) })
+                    divp.appendChild(infof);
+                }
+            }
+        )
 }
 
+//precedent
 
-////////////
+// var page = 1
+// document.getElementById("pre").addEventListener("click", function() { precedent() });
+
+// function precedent() {
+//     page--
+//     fetch(prev)
+//         .then(
+//             function(response) {
+//                 return response.json();
+//             }
+//         )
+//         .then(
+//             function(data) {
+//                 nex = data.next
+//                 prev = data.previous
+//                 for (let i = 0; i <= 9; i++) {
+//                     var divp = document.createElement("div");
+//                     divp.setAttribute("id", "aligne" + i)
+//                     divp.innerHTML = " ";
+//                     var parent = document.getElementById("pokemons");
+//                     parent.appendChild(divp);
+//                     var pokemonf = document.createElement("p");
+//                     pokemonf.innerHTML = data.results[i].name;
+//                     divp.appendChild(pokemonf);
+//                     var infof = document.createElement("p");
+//                     infof.innerHTML = "voir les details";
+//                     infof.addEventListener("click", function() { infoperso(data.results[i].url) })
+//                     divp.appendChild(infof);
+//                 }
+//             }
+//         )
+// }
+
+
+
+
+//appel nom planete
 
 function charger1() {
     fetch('https://swapi.co/api/planets/')
@@ -173,15 +218,16 @@ function charger1() {
                     divp.appendChild(pokemonf);
                     var infof = document.createElement("p");
                     infof.innerHTML = "voir les details";
-                    infof.addEventListener("click", function() { infoperso(data.results[i].url) })
+                    infof.addEventListener("click", function() { infopersos(data.results[i].url) })
                     divp.appendChild(infof);
                 }
             }
         )
 }
 
+//detail planete
 
-function infoperso(url) {
+function infopersos(url) {
     var visible = document.getElementById("infos");
     visible.className = "vue"
     fetch(url)
@@ -276,22 +322,23 @@ function infoperso(url) {
                 var parent = document.getElementById("infos");
                 parent.appendChild(po);
 
-                for (let i = 0; i < data.results.residents; i++) {
+                // for (let i = 0; i < data.results.residents; i++) {
 
 
-                    var res = document.createElement("h3");
-                    res.innerHTML = "residents";
-                    var parent = document.getElementById("infos");
-                    parent.appendChild(res);
-                    var re = document.createElement("p");
-                    re.innerHTML = data.residents[i];
-                    var parent = document.getElementById("infos");
-                    parent.appendChild(re);
-                }
+                var res = document.createElement("h3");
+                res.innerHTML = "residents";
+                var parent = document.getElementById("infos");
+                parent.appendChild(res);
+                var re = document.createElement("p");
+                re.innerHTML = data.residents;
+                var parent = document.getElementById("infos");
+                parent.appendChild(re);
+                // }
             }
         )
 }
 
+//Pour la recherche
 
 // function recherche() {
 //     fetch('https://swapi.co/api/people/' + inp)
